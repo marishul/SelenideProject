@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Sample Test Suite" parallel="false">
+    <test name="SampleSelenideSuite">
+        <classes>
+            <class name="SelenideLoginTest"/>
+        </classes>
+    </test>
+
+    <listeners>
+        <listener class-name="utils.TestNGListener"/>
+    </listeners>
+</suite>
