@@ -1,15 +1,16 @@
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.WebDriverRunner;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import org.openqa.selenium.By;
+import pages.LoginPage;
 
-import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Condition.*;
-import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 
 public class SelenideLoginTest {
+    LoginPage loginPage = new LoginPage();
+
     @BeforeMethod
     public void setUp() {
         Configuration.browser = "chrome";
@@ -17,17 +18,17 @@ public class SelenideLoginTest {
 
     @Test
     public void loginTest() {
-        open("https://jira.hillel.it/secure/Dashboard.jspa");
-        $(By.id("login-form-username")).setValue("webinar5");
-        $(By.id("login-form-password")).setValue("webinar5");
-        $("#login").click();
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        $(By.id("header-details-user-fullname")).shouldBe(visible);
+        loginPage.navigateTo();
+        loginPage.setUsername("webinar5");
+        loginPage.setPassword("webinar5");
+        loginPage.clickLogin();
+        loginPage.panelAppears();
 
         assertTrue(1==1);
     }
+
+    @AfterMethod
+    public static void closeWindow() {
+        WebDriverRunner.closeWindow();
+    };
 }

@@ -1,5 +1,5 @@
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.Selenide;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -30,11 +30,12 @@ public class CreateIssueTest {
         homePage.setReporter();
         homePage.submitIssue();
         homePage.isConfirmationPresence();
+
     }
 
     @AfterMethod
-    public static void closeWindow() {
-        WebDriverRunner.closeWindow();
+    public void closeWindow() {
+        Selenide.closeWindow();
     }
 }
 
