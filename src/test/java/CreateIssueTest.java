@@ -17,7 +17,7 @@ public class CreateIssueTest {
         loginPage.setUsername("webinar5");
         loginPage.setPassword("webinar5");
         loginPage.clickLogin();
-        loginPage.panelAppears();
+        loginPage.verifyIfPanelPresence();
     }
 
     @Test

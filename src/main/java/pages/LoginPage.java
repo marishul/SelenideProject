@@ -1,5 +1,6 @@
 package pages;
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -23,15 +24,12 @@ public class LoginPage {
         $("#login").click();
     }
 
-    public void panelAppears() {
-        $(By.id("header-details-user-fullname")).should(Condition.appear);
+    public void verifyIfPanelPresence() {
+        SelenideElement should = $(By.id("header-details-user-fullname")).should(Condition.appear);
     }
 
     public void errorAppears() {
         $(By.id("usernameerror")).should(Condition.appear);
-
     }
-
-
 
 }

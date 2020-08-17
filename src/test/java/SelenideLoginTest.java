@@ -5,8 +5,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 
-import static org.testng.Assert.assertTrue;
-
 
 public class SelenideLoginTest {
     LoginPage loginPage = new LoginPage();
@@ -22,9 +20,8 @@ public class SelenideLoginTest {
         loginPage.setUsername("webinar5");
         loginPage.setPassword("webinar5");
         loginPage.clickLogin();
-        loginPage.panelAppears();
+        loginPage.verifyIfPanelPresence();
 
-        assertTrue(1==1);
     }
 
     @AfterMethod

@@ -3,6 +3,9 @@
     <test name="SampleSelenideSuite">
         <classes>
             <class name="SelenideLoginTest"/>
+            <class name="FailLoginTest"/>
+            <class name="AddCommentTest"/>
+            <class name="CreateIssueTest"/>
         </classes>
     </test>
 
